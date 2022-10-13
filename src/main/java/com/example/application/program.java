@@ -6,5 +6,6 @@ public class program {
     public static void main(String[] args){
         DBManager.createEntityDB("Bob Brown", "bbrown@test.com");
         DBManager.findEntityDB(6);
+        DBManager.removeEntityDB(4);
     }
 }

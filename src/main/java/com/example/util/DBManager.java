@@ -18,15 +18,27 @@ public class DBManager {
 
     public static void createEntityDB(String name, String mail){
 
-        Pessoa pessoa = new Pessoa(null, name, mail);
+        Pessoa vPessoa = new Pessoa(null, name, mail);
 
         eManager.getTransaction().begin();
 
-        eManager.persist(pessoa);        
+        eManager.persist(vPessoa);        
         eManager.getTransaction().commit();
 
         System.out.println("Done! You have been created a new data.");
         eManager.close();
+
+    }
+
+    public static void removeEntityDB(int id){
+       Pessoa vPessoa = eManager.find(Pessoa.class, id); 
+
+       eManager.getTransaction().begin();
+       eManager.remove(vPessoa);
+
+       eManager.getTransaction().commit();
+       System.out.println("Done! You have been remove data.");
+       eManager.close();
 
     }
 
